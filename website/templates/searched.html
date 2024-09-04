@@ -1,0 +1,28 @@
+{% extends 'base.html' %}
+{%block title%}
+searched
+{%endblock title%}
+{% block body %}
+<h3>you searched for:{{searched}}</h3>
+<table class="table">
+    <thead>
+      <tr>
+        <th>User_name</th>
+        <th>View</th>
+      </tr>
+    </thead>
+    <tbody>
+  {%if search %}
+    {%for item in search%}
+      <tr>
+        <td>{{item.User_name}}</td>
+        <td><a href="/others_Profile/{{item.User_name}}" type="button" class="btn btn-primary">view</a></td>
+      </tr>
+    {%endfor%}
+    </table>
+  {%else%}
+  <div>no user with username:-{{searched}}
+  {%endif%}
+
+
+{%endblock body%}
